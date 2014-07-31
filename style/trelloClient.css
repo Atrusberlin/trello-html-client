@@ -1,0 +1,119 @@
+#trelloError {
+  color: darkred;
+  font-weight: bold;
+  display: none;
+  border: solid;
+  margin: 5px;
+  padding: 5px;
+}
+
+#board {
+  font-family: sans-serif;
+  font-size: 10pt;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: auto;
+
+}
+
+#boardTitle {
+  font-size: 20pt;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+#boardLists {
+  /*nothing*/
+}
+
+.list {
+  display: inline-block;
+  background: #e3e3e3;
+  border-radius: 3px;
+  margin: 0 10px;
+  width: 180px;
+  min-height: 450px;
+  vertical-align: top;
+}
+
+.listName {
+  font-weight: bold;
+  margin: 5px;
+  padding-left: 2px;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.card {
+  margin: 5px;
+  padding: 5px;
+  background: white;
+  min-height: 40px;
+  border-radius: 2pt;
+  white-space: normal;
+}
+
+.cardDetails {
+  margin-top: 10pt;
+  display: block;
+}
+
+.cardData,
+.cardMembers {
+  width: 50%;
+  display: inline-block;
+}
+
+.cardMembers {
+  text-align: right;
+}
+
+.avatar,
+.cardDescription,
+.dueDate {
+  display: inline-block;
+}
+
+.avatar,
+.cardDescription {
+  cursor: help;
+}
+
+.avatar {
+  margin-left: 3pt;
+  background-color: #e3e3e3;
+  height: 20px;
+  line-height: 20px;
+  min-width: 20px;
+  border: solid 1pt lightgray;
+  padding: 2pt;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 8pt;
+  font-weight: bold;
+}
+
+.cardDescription,
+.dueDate {
+  vertical-align: middle;
+}
+
+.cardDescription {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAUCAIAAADdpfBFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA5SURBVDhPYzx8+DAD8QCo+j9xAKiSCaqJOMACoRoaGiAMrAAhS0OXjLobDoaYu7EIDhp3k5LTGBgAdK3pzqulF48AAAAASUVORK5CYII=');
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 15px;
+  margin-right: 3pt;
+}
+
+.dueDate {
+  border: solid 1pt lightgray;
+  border-radius: 4pt;
+  background-color: #e3e3e3;
+  cursor: default;
+  height: 8pt;
+  padding: 3pt;
+  line-height: 8pt;
+  font-size: smaller;
+  font-weight: bold;
+}

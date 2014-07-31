@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>TrelloBoard - Client</title>
+</head>
+
+<body>
+<h1>Trello Board JavaScript Client</h1>
+
+<script language="JavaScript" src="lib/jquery-2.1.1.min.js"></script>
+<script language="JavaScript" src="src/trelloClient.js"></script>
+
+<script language="JavaScript">
+  $.getJSON("config.json", null, function (data) {
+    var client = new TrelloClient();
+    client.avatarPrefix = "Member: ";
+//    client configuration
+    client.descriptionEnabled = true; // default
+    client.dueDateEnabled = true; // default
+    client.showBoardTitle = true; // default
+//    client actions
+    client.loadBoard(data.boardId);
+  }).fail(function () {
+    $("#info").html("<p>To run this demo you need to specify a 'config.json' next to 'trelloClient.html'</p>" +
+                    "<pre>config.json\n" +
+                    "{\n" +
+                    "  &quot;applicationKey&quot; : [yourApplicationKey];,\n" +
+                    "  &quot;userToken&quot; : [yourTokenAuthorizedByAUserHowHasAccessToTheBoard],\n" +
+                    "  &quot;boardId&quot; : [theBoardId: e.g. cI66RoQS]\n" +
+                    "}</pre>" +
+                    "<p>yourApplicationKey: <a href=\"https://trello.com/1/appKey/generate\">Generate your own application key</a></p>" +
+                    "<p>yourTokenAuthorizedByAUserHowHasAccessToTheBoard: <a href=\"https://trello.com/1/authorize?key={YourAppKey}&name={YourAppName}&expiration=1day&response_type=token&scope=read\">https://trello.com/1/authorize?key={YourAppKey}&name={YourAppName}&expiration=1day&response_type=token&scope=read</a></p>");
+  });
+
+</script>
+
+<style type="text/css">
+  @import "style/trelloClient.css";
+</style>
+
+<span id="trelloError"></span>
+
+<div id="board" style="width:1050px; max-height:450px">
+  <span id="info">Placeholder waiting for Trello ...</span>
+
+  <div id="boardTitle"></div>
+  <div id="boardLists"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="style/trelloClientVersion.css" type="text/css">
+  <script src="lib/jquery-2.1.1.min.js" type="text/javascript"></script>
+  <script src="lib/jquery-ui-1.11.0-custom.min.js" type="text/javascript"></script>
+  <script>
+    $(function () {
+      $("#versionInfoText").dialog({
+        autoOpen: false,
+        show: {
+          effect: "fold",
+          duration: 500
+        },
+        hide: {
+          effect: "fold",
+          duration: 500
+        }
+      });
+
+      $("#versionInfo").click(function () {
+        $("#versionInfoText").dialog("open").position({
+          my: "top-2 left-2",
+          of: "#versionInfo"
+        });
+      });
+    })
+  </script>
+
+</head>
+<body>
+<div id="versionInfo"></div>
+<div id="versionInfoText">
+  <p>Version: 1.0</p>
+
+  <p>Release notes:
+  <ul>
+    <li>Read-only Trello client</li>
+    <li>reuseable JavaScript code</li>
+    <li>client can be inlined into a Confluence Wiki</li>
+  </ul>
+  </p>
+  <p>
+    Sources @github: <a href="https://github.com/Atrusberlin/trello-html-client">Atrusberlin/trello-html-client</a>
+  </p>
+</div>
+
+</body>
+</html>

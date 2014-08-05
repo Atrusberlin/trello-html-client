@@ -1,0 +1,17 @@
+#versionInfo {
+  background-image: url("../img/Info_24x24.png");
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+#versionInfoText {
+  border: 1px solid cornflowerblue;
+  padding: 5px 10px;
+  background-color: #88B9FF;
+}
+
+#versionInfoText p,
+#versionInfoText ul {
+  margin: 0;
+}

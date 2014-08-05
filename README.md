@@ -36,6 +36,14 @@ Define the following HTML snippet:
 
 ## Demo - trelloClient.html
 
+### nginx HTML Server
+
+- install the server from http://nginx.org/en/download.html
+- create a environment variable %NGINX_DIR%
+- use the batch files "nginx_start.bat" and "nginx_stop.bat" to run and halt the server
+
+### Configuration
+
 To run this demo you need to specify a `config.json` next to `trelloClient.html`
 ```json
 {

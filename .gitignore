@@ -2,3 +2,5 @@
 .idea/
 *.iml
 config.json
+logs/
+temp/

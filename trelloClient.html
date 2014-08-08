@@ -20,7 +20,7 @@
     client.dueDateEnabled = true; // default
     client.showBoardTitle = true; // default
 //    client actions
-    if (data.offline) {
+    if (data.online) {
       client.loadBoard(data.boardId);
     }
   }).fail(function () {

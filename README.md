@@ -49,7 +49,8 @@ To run this demo you need to specify a `config.json` next to `trelloClient.html`
 {
   "applicationKey" : "[yourApplicationKey]",
   "userToken" : "[yourTokenAuthorizedByAUserHowHasAccessToTheBoard]",
-  "boardId" : "[theBoardId: e.g. cI66RoQS]"
+  "boardId" : "[theBoardId: e.g. cI66RoQS]",
+  "online" : true
 }
 ```
 
@@ -58,6 +59,8 @@ _**yourApplicationKey**_: [Generate your own application key](https://trello.com
 _**yourTokenAuthorizedByAUserHowHasAccessToTheBoard**_: `https://trello.com/1/authorize?key={YourAppKey}&name={YourAppName}&expiration=1day&response_type=token&scope=read`
 
 Public boards don't need neither **applicationKey** nor **userToken**.
+
+_**online**_: switch to disable requests to trello.com
 
 ## License
 

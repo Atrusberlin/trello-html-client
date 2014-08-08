@@ -9,6 +9,11 @@
   border: 1px solid cornflowerblue;
   padding: 5px 10px;
   background-color: #88B9FF;
+  width: 350px;
+  min-height: 200px;
+  max-height: 200px;
+  overflow: auto;
+  position: absolute;
 }
 
 #versionInfoText p,

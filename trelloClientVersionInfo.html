@@ -7,24 +7,32 @@
   <script src="lib/jquery-ui-1.11.0-custom.min.js" type="text/javascript"></script>
   <script>
     $(function () {
-      $("#versionInfoText").dialog({
-        autoOpen: false,
-        show: {
-          effect: "fold",
-          duration: 500
-        },
-        hide: {
-          effect: "fold",
-          duration: 500
-        }
+      var $versionInfoText = $("#versionInfoText");
+//      $versionInfoText.dialog({
+//                                autoOpen: false,
+//                                show: {
+//                                  effect: "fold",
+//                                  duration: 500
+//                                },
+//                                hide: {
+//                                  effect: "fold",
+//                                  duration: 500
+//                                }
+//                              });
+      $versionInfoText.position({
+                                  my: "left+10 top+10",
+                                  at: "right bottom",
+                                  of: "#versionInfo"
+                                })
+      $versionInfoText.hide();
+
+      $("#versionInfo").mouseover(function () {
+//        $("#versionInfoText").dialog("open");
+        $versionInfoText.show();
+      }).mouseout(function () {
+        $versionInfoText.hide();
       });
 
-      $("#versionInfo").click(function () {
-        $("#versionInfoText").dialog("open").position({
-          my: "top-2 left-2",
-          of: "#versionInfo"
-        });
-      });
     })
   </script>
 

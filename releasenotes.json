@@ -1,0 +1,26 @@
+{
+  "releases": [
+    {
+      "number": "1.1",
+      "changes": [
+        {
+          "desc": "Project ans release information were added."
+        }
+      ]
+    },
+    {
+      "number": "1.0",
+      "changes": [
+        {
+          "desc": "Read-only Trello client"
+        },
+        {
+          "desc": "client can be inlined into a Confluence Wiki"
+        },
+        {
+          "desc": "reuseable JavaScript code"
+        }
+      ]
+    }
+  ]
+}

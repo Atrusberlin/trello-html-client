@@ -32,7 +32,7 @@
   var version = new TrelloClientVersion("releasenotes.json");
   version.activate();
   $.getJSON("conf/config.json",function (data) {
-    var client = new TrelloClient();
+    var client = new TrelloClient(data.applicationKey, data.userToken);
     client.avatarPrefix = "Member: ";
 //    client configuration
     client.descriptionEnabled = true; // default

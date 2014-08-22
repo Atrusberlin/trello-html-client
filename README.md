@@ -17,6 +17,7 @@ Define the following HTML snippet:
 
 <style type="text/css">
   @import "trelloClient.css";
+  @import "style/trelloClientVersion.css";
 </style>
 
 <span id="trelloError"></span>

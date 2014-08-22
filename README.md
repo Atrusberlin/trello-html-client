@@ -10,16 +10,10 @@ Import the JavaScript and CSS files also the jquery library.
 Define the following HTML snippet:
 
 ```html
-<script language="JavaScript" src="lib/jquery-2.1.1.min.js"></script>
-<script language="JavaScript" src="trelloClient.js"></script>
-
-<script language="JavaScript">
-  var client = new TrelloClient([trello application key],[trello user token]);
-  client.descriptionEnabled = true; // default
-  client.dueDateEnabled = true; // default
-  client.showBoardTitle = true; // default
-  client.requestLists([boardId]);
-</script>
+<script language="JavaScript" type="text/javascript" src="lib/jquery-2.1.1.min.js"></script>
+<script language="JavaScript" src="lib/jquery-ui-1.11.0-custom.min.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript" src="src/trelloClient.js"></script>
+<script language="JavaScript" type="text/javascript" src="src/trelloClientVersion.js"></script>
 
 <style type="text/css">
   @import "trelloClient.css";
@@ -32,6 +26,19 @@ Define the following HTML snippet:
   <div id="boardTitle"></div>
   <div id="boardLists"></div>
 </div>
+
+<script language="JavaScript">
+  // VersionInfo requires the releasenotes.json file
+  var version = new TrelloClientVersion("releasenotes.json");
+  version.activate();
+
+  var client = new TrelloClient([trello application key],[trello user token]);
+  client.descriptionEnabled = true; // default
+  client.dueDateEnabled = true; // default
+  client.avatarPrefix = "Member: ";
+  client.showBoardTitle = true; // default
+  client.loadBoard([boardId]);
+</script>
 ```
 
 ## Demo - trelloClient.html

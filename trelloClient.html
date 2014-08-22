@@ -13,19 +13,6 @@
 <script language="JavaScript" type="text/javascript" src="src/trelloClient.js"></script>
 <script language="JavaScript" type="text/javascript" src="src/trelloClientVersion.js"></script>
 
-<!--function TrelloClientVersion() {-->
-
-<!--var $this = this;-->
-
-<!--$this.activate = function () {-->
-
-<!--$("<div id='versionInfo'></div>").insertBefore("#board");-->
-<!--//      var versionInfoText = $("<div id='versionInfoText'></div>");-->
-<!--//      versionInfo.insertbefore("#board");-->
-<!--//      $.insertAfter($versionInfoText,$versionInfo);-->
-<!--}-->
-<!--}-->
-<!--</script>-->
 
 <style type="text/css">
   @import "style/trelloClient.css";
@@ -44,7 +31,7 @@
 <script language="JavaScript">
   var version = new TrelloClientVersion("releasenotes.json");
   version.activate();
-  $.getJSON("conf/config.json", function (data) {
+  $.getJSON("conf/config.json",function (data) {
     var client = new TrelloClient();
     client.avatarPrefix = "Member: ";
 //    client configuration
@@ -56,16 +43,16 @@
       client.loadBoard(data.boardId);
     }
   }).fail(function () {
-    $("#info").html("<p>To run this demo you need to specify a 'config.json' next to 'trelloClient.html'</p>" +
-                    "<pre>config.json\n" +
-                    "{\n" +
-                    "  &quot;applicationKey&quot; : [yourApplicationKey],\n" +
-                    "  &quot;userToken&quot; : [yourTokenAuthorizedByAUserHowHasAccessToTheBoard],\n" +
-                    "  &quot;boardId&quot; : [theBoardId: e.g. cI66RoQS]\n" +
-                    "}</pre>" +
-                    "<p>yourApplicationKey: <a href=\"https://trello.com/1/appKey/generate\">Generate your own application key</a></p>" +
-                    "<p>yourTokenAuthorizedByAUserHowHasAccessToTheBoard: <a href=\"https://trello.com/1/authorize?key={YourAppKey}&name={YourAppName}&expiration=1day&response_type=token&scope=read\">https://trello.com/1/authorize?key={YourAppKey}&name={YourAppName}&expiration=1day&response_type=token&scope=read</a></p>");
-  });
+        $("#info").html("<p>To run this demo you need to specify a 'config.json' next to 'trelloClient.html'</p>" +
+            "<pre>config.json\n" +
+            "{\n" +
+            "  &quot;applicationKey&quot; : [yourApplicationKey],\n" +
+            "  &quot;userToken&quot; : [yourTokenAuthorizedByAUserHowHasAccessToTheBoard],\n" +
+            "  &quot;boardId&quot; : [theBoardId: e.g. cI66RoQS]\n" +
+            "}</pre>" +
+            "<p>yourApplicationKey: <a href=\"https://trello.com/1/appKey/generate\">Generate your own application key</a></p>" +
+            "<p>yourTokenAuthorizedByAUserHowHasAccessToTheBoard: <a href=\"https://trello.com/1/authorize?key={YourAppKey}&name={YourAppName}&expiration=1day&response_type=token&scope=read\">https://trello.com/1/authorize?key={YourAppKey}&name={YourAppName}&expiration=1day&response_type=token&scope=read</a></p>");
+      });
 
 </script>
 

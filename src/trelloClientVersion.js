@@ -1,18 +1,22 @@
 function TrelloClientVersion(versionInfoFile) {
 
   var $this = this;
-  var $versionInfo, $versionInfoText;
+  var $versionInfo, $versionInfoText, $preDescritionText;
 
   $this.activate = function () {
     $.getJSON(versionInfoFile, function (data) {
       $versionInfo = $("<div id='versionInfo'></div>").insertBefore("#board");
       $versionInfoText = $("<div id='versionInfoText'></div>").insertAfter($versionInfo).hide();
-      initPopup();
+      initPopup(data.description);
       fillPopup(data);
     });
   }
 
-  var initPopup = function () {
+  $this.prependToDescription = function (additionalDescripion) {
+    $preDescritionText = additionalDescripion;
+  }
+
+  var initPopup = function (description) {
     $versionInfoText.position({
                                 my: "left+10 top+10",
                                 at: "right bottom",
@@ -21,8 +25,10 @@ function TrelloClientVersion(versionInfoFile) {
     $versionInfoText.hide();
     var $description = $("<div class='description'>");
     $description.appendTo($versionInfoText);
-    $("<p>Project to get read-only access to an Trello board.</p>").appendTo($description);
-    $("<p>Sources @github: <a href='https://github.com/Atrusberlin/trello-html-client' target='_blank'>Atrusberlin/trello-html-client</a></p>").appendTo($description);
+    for (i = 0; i < description.length; i++) {
+      $("<p>" + description[i].line + "</p>").appendTo($description);
+    }
+    $("<br/>").appendTo($description);
 
     var $infoTextHasFocus = false;
 

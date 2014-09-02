@@ -1,4 +1,12 @@
 {
+  "description": [
+    {
+      "line": "Project to get read-only access to an Trello board."
+    },
+    {
+      "line": "Sources @github: <a href='https://github.com/Atrusberlin/trello-html-client' target='_blank'>Atrusberlin/trello-html-client</a>"
+    }
+  ],
   "releases": [
     {
       "number": "1.1",

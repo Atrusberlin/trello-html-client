@@ -11,8 +11,9 @@
   font-family: sans-serif;
   font-size: 10pt;
   white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow-y: hidden;
+  height: 500px;
+  width: 1050px;
 
 }
 
@@ -20,10 +21,13 @@
   font-size: 20pt;
   margin-left: 10px;
   margin-bottom: 15px;
+  line-height: 20pt;
 }
 
 #boardLists {
-  /*nothing*/
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 440px;
 }
 
 .list {

@@ -1,12 +1,5 @@
-function TrelloClient(appKey, userToken) {
+function TrelloClient(server) {
   var $this = this;
-  var keyAndToken = "";
-  if (appKey) {
-    keyAndToken = "key=" + appKey;
-  }
-  if (userToken) {
-    keyAndToken += "&token=" + userToken;
-  }
 
   $this.dueDateEnabled = true;
   $this.descriptionEnabled = true;
@@ -85,7 +78,7 @@ function TrelloClient(appKey, userToken) {
       var divId = "list" + current.id;
       var $list = $("<div id='" + divId + "' class='list'/>");
       $list.append("<div class='listName'>" + current.name + "</div>");
-      requestCards(current.id);
+//      requestCards(current.id);
       $list.appendTo($lists);
     }
   }
@@ -98,22 +91,20 @@ function TrelloClient(appKey, userToken) {
   }
 
   this.loadBoard = function (boardId) {
-    var getBoard = "https://trello.com/1/boards/" + boardId + getKeyAndToken("/?");
-    var getLists = "https://trello.com/1/boards/" + boardId + "/lists" + getKeyAndToken("?");
     var $info = $("#info");
 
     if ($this.showBoardTitle) {
-      $.get(getBoard, null, function (data) {
+      server.getBoard(boardId, function (data) {
         $("#boardTitle").html(data.name);
-      }, "json");
+      });
     }
     else {
       $("#boardTitle").remove();
     }
 
-    $.get(getLists, null, function (data) {
+    server.loadLists(boardId, function (data) {
       handleListResponse(data);
       $("#info").remove();
-    }, "json").fail(handleFailure);
+    });
   }
 }

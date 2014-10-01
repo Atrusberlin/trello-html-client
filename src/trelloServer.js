@@ -45,8 +45,5 @@ function TrelloServer(appKey, userToken) {
     }, "json").fail($failureHandler);
   };
 
-  var invokeCallbackWithData = function (data, callback) {
-    callback(data);
-  };
 }
 

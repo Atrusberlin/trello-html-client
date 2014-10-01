@@ -1,0 +1,28 @@
+{"id": "0123456789", "name": "Title - Stubbed Board", "desc": "", "descData": null, "closed": false, "idOrganization": "12345", "pinned": true, "url": "https://trello.com/b/abcdef/title", "shortUrl": "https://trello.com/b/abcdef",
+  "prefs": {
+    "permissionLevel": "private",
+    "voting": "disabled",
+    "comments": "members",
+    "invitations": "members",
+    "selfJoin": false,
+    "cardCovers": true,
+    "cardAging": "regular",
+    "calendarFeedEnabled": false,
+    "background": "red",
+    "backgroundColor": "#BF4A40",
+    "backgroundImage": null,
+    "backgroundImageScaled": null,
+    "backgroundTile": false,
+    "backgroundBrightness": "unknown",
+    "canBePublic": true,
+    "canBeOrg": true,
+    "canBePrivate": true,
+    "canInvite": true
+  }, "labelNames": {
+  "red": "",
+  "orange": "",
+  "yellow": "",
+  "green": "",
+  "blue": "",
+  "purple": ""
+}}

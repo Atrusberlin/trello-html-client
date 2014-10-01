@@ -38,10 +38,6 @@ function TrelloClient(server) {
     $members.appendTo("#card" + cardId + " .cardDetails");
   }
 
-  function requestMember(cardId) {
-    server.loadMembers(cardId, handleMemberResponse)
-  }
-
   function handleCardResponse(data) {
     for (i = 0; i < data.length; i++) {
       var current = data[i];
@@ -59,16 +55,10 @@ function TrelloClient(server) {
         $dueDate.appendTo($data);
       }
       $data.appendTo($details);
-      requestMember(current.id);
+      server.loadMembers(current.id, handleMemberResponse);
       $details.appendTo($card);
       $card.appendTo("#list" + listId);
     }
-  }
-
-  function requestCards(listId) {
-//    var cardRest = "https://api.trello.com/1/lists/" + listId + "/cards" + getKeyAndToken("?")
-//    $.get(cardRest, null, handleCardResponse, "json").fail(handleFailure);
-    server.loadCards(listId, handleCardResponse);
   }
 
   function handleListResponse(data) {
@@ -78,7 +68,7 @@ function TrelloClient(server) {
       var divId = "list" + current.id;
       var $list = $("<div id='" + divId + "' class='list'/>");
       $list.append("<div class='listName'>" + current.name + "</div>");
-      requestCards(current.id);
+      server.loadCards(current.id, handleCardResponse);
       $list.appendTo($lists);
     }
   }

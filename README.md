@@ -68,7 +68,7 @@ _**yourTokenAuthorizedByAUserHowHasAccessToTheBoard**_: `https://trello.com/1/au
 
 Public boards don't need neither **applicationKey** nor **userToken**.
 
-_**online**_: switch to disable requests to trello.com
+_**online**_: switch to disable requests to trello.com; if requests are disabled, then stubbed data will returned
 
 ## License
 

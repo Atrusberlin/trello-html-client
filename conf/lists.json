@@ -1,0 +1,42 @@
+[
+  {
+    "id": "list1",
+    "name": "List One",
+    "closed": false,
+    "idBoard": "0123456789",
+    "pos": 8192,
+    "subscribed": false
+  },
+  {
+    "id": "list2",
+    "name": "List Two",
+    "closed": false,
+    "idBoard": "0123456789",
+    "pos": 16384,
+    "subscribed": false
+  },
+  {
+    "id": "list3",
+    "name": "List Three",
+    "closed": false,
+    "idBoard": "0123456789",
+    "pos": 32768,
+    "subscribed": false
+  },
+  {
+    "id": "list4",
+    "name": "List Four",
+    "closed": false,
+    "idBoard": "0123456789",
+    "pos": 49152,
+    "subscribed": false
+  },
+  {
+    "id": "list5",
+    "name": "list5",
+    "closed": false,
+    "idBoard": "0123456789",
+    "pos": 114688,
+    "subscribed": false
+  }
+]

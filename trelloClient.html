@@ -34,7 +34,10 @@
   var version = new TrelloClientVersion("releasenotes.json");
   version.activate();
   $.getJSON("conf/config.json",function (data) {
-    var server = new TrelloServer(data.applicationKey, data.userToken);
+    var server = new TrelloServerStub();
+    if (data.online) {
+      server = new TrelloServer(data.applicationKey, data.userToken);
+    }
     var client = new TrelloClient(server);
     client.avatarPrefix = "Member: ";
 //    client configuration
@@ -42,9 +45,7 @@
     client.dueDateEnabled = true; // default
     client.showBoardTitle = true; // default
 //    client actions
-    if (data.online) {
-      client.loadBoard(data.boardId);
-    }
+    client.loadBoard(data.boardId);
   }).fail(function () {
         $("#info").html("<p>To run this demo you need to specify a 'config.json' next to 'trelloClient.html'</p>" +
             "<pre>config.json\n" +

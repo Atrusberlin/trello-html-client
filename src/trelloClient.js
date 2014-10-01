@@ -6,6 +6,8 @@ function TrelloClient(server) {
   $this.showBoardTitle = true;
   $this.avatarPrefix = "";
 
+  server.setFailureHandler(handleFailure);
+
   function handleFailure(data) {
     $("#trelloError").html("Error (" + data.status + "): " + data.responseText)
         .css("display", "block");
@@ -37,10 +39,7 @@ function TrelloClient(server) {
   }
 
   function requestMember(cardId) {
-    var membersRequest = "https://api.trello.com/1/card/" + cardId + "/members" + getKeyAndToken("?");
-    $.get(membersRequest, null, function (data) {
-      handleMemberResponse(data, cardId)
-    }, "json").fail(handleFailure);
+    server.loadMembers(cardId, handleMemberResponse)
   }
 
   function handleCardResponse(data) {
@@ -59,7 +58,7 @@ function TrelloClient(server) {
         $dueDate.addClass("dueDate").text(shortDate(current.due));
         $dueDate.appendTo($data);
       }
-      $data.appendTo($details); // Work in Progess, noch nicht darstellen
+      $data.appendTo($details);
       requestMember(current.id);
       $details.appendTo($card);
       $card.appendTo("#list" + listId);
@@ -67,8 +66,9 @@ function TrelloClient(server) {
   }
 
   function requestCards(listId) {
-    var cardRest = "https://api.trello.com/1/lists/" + listId + "/cards" + getKeyAndToken("?")
-    $.get(cardRest, null, handleCardResponse, "json").fail(handleFailure);
+//    var cardRest = "https://api.trello.com/1/lists/" + listId + "/cards" + getKeyAndToken("?")
+//    $.get(cardRest, null, handleCardResponse, "json").fail(handleFailure);
+    server.loadCards(listId, handleCardResponse);
   }
 
   function handleListResponse(data) {
@@ -78,23 +78,16 @@ function TrelloClient(server) {
       var divId = "list" + current.id;
       var $list = $("<div id='" + divId + "' class='list'/>");
       $list.append("<div class='listName'>" + current.name + "</div>");
-//      requestCards(current.id);
+      requestCards(current.id);
       $list.appendTo($lists);
     }
-  }
-
-  function getKeyAndToken(prefix) {
-    if (keyAndToken) {
-      return prefix + keyAndToken;
-    }
-    return "";
   }
 
   this.loadBoard = function (boardId) {
     var $info = $("#info");
 
     if ($this.showBoardTitle) {
-      server.getBoard(boardId, function (data) {
+      server.loadBoard(boardId, function (data) {
         $("#boardTitle").html(data.name);
       });
     }

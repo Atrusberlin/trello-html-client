@@ -33,7 +33,8 @@ Define the following HTML snippet:
   var version = new TrelloClientVersion("releasenotes.json");
   version.activate();
 
-  var client = new TrelloClient([trello application key],[trello user token]);
+  var server = new TrelloServer([trello application key],[trello user token]);
+  var client = new TrelloClient(server);
   client.descriptionEnabled = true; // default
   client.dueDateEnabled = true; // default
   client.avatarPrefix = "Member: ";

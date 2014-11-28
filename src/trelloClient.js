@@ -6,7 +6,13 @@ function TrelloClient(server) {
   $this.showBoardTitle = true;
   $this.avatarPrefix = "";
 
+  var listsDoNotRender;
+
   server.setFailureHandler(handleFailure);
+
+  $this.ignoreLists = function (listIds) {
+    listsDoNotRender = listIds;
+  }
 
   function handleFailure(data) {
     $("#trelloError").html("Error (" + data.status + "): " + data.responseText)
@@ -65,11 +71,13 @@ function TrelloClient(server) {
     var $lists = $("#boardLists");
     for (i = 0; i < data.length; i++) {
       var current = data[i];
-      var divId = "list" + current.id;
-      var $list = $("<div id='" + divId + "' class='list'/>");
-      $list.append("<div class='listName'>" + current.name + "</div>");
-      server.loadCards(current.id, handleCardResponse);
-      $list.appendTo($lists);
+      if (listsDoNotRender.indexOf(current.id) == -1) {
+        var divId = "list" + current.id;
+        var $list = $("<div id='" + divId + "' class='list'/>");
+        $list.append("<div class='listName'>" + current.name + "</div>");
+        server.loadCards(current.id, handleCardResponse);
+        $list.appendTo($lists);
+      }
     }
   }
 

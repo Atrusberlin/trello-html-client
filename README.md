@@ -40,6 +40,7 @@ Define the following HTML snippet:
   client.avatarPrefix = "Member: ";
   client.showBoardTitle = true; // default
   client.loadBoard([boardId]);
+  client.ignoreLists(['id1', 'id2'])
 </script>
 ```
 

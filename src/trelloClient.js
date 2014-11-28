@@ -6,7 +6,7 @@ function TrelloClient(server) {
   $this.showBoardTitle = true;
   $this.avatarPrefix = "";
 
-  var listsDoNotRender;
+  var listsDoNotRender = [];
 
   server.setFailureHandler(handleFailure);
 

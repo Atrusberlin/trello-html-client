@@ -9,6 +9,17 @@
   ],
   "releases": [
     {
+      "number": "1.2",
+      "changes": [
+        {
+          "desc": "Any List of the board can be excluded by it id."
+        },
+        {
+          "desc": "Server calls extracted to trelloServer.js; Stubbing of trello is possible now."
+        }
+      ]
+    },
+    {
       "number": "1.1",
       "changes": [
         {
